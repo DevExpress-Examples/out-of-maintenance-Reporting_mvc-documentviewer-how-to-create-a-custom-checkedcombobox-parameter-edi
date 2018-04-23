@@ -1,0 +1,27 @@
+@Html.DevExpress().DocumentViewer(settings => {
+    settings.Name = "DocumentViewer";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "DocumentViewerPartial" };
+    settings.ExportRouteValues = new { Controller = "Home", Action = "DocumentViewerPartialExport" };
+    settings.Report = (XtraReport)Model;
+    settings.ToolbarMode = DocumentViewerToolbarMode.StandardToolbar;
+
+    settings.SetCustomParameter("Categories", parameter => {
+        DropDownEditProperties ddeProperties = new DropDownEditProperties();
+        ddeProperties.ClientInstanceName = String.Format("{0}_CheckComboBox", parameter.ParameterName);
+
+        T262163.Templates.CheckedListWindowSettings checkedListWindowSettings = new T262163.Templates.CheckedListWindowSettings(ddeProperties.ClientInstanceName);
+        checkedListWindowSettings.TextField = "CategoryName";
+
+        T262163.Models.NorthwindEntities db = new T262163.Models.NorthwindEntities();
+        checkedListWindowSettings.DataSource = from category in db.Categories
+                                               select category;
+
+        ddeProperties.DropDownWindowTemplate = new T262163.Templates.CheckedListWindowTemplate(checkedListWindowSettings);
+
+        ddeProperties.DropDownWindowStyle.BackColor = System.Drawing.Color.FromArgb(0xEDEDED);
+        ddeProperties.AnimationType = AnimationType.None;
+        ddeProperties.ClientSideEvents.TextChanged = String.Format("function(s, e) {{ SynchronizeListBoxValues(s, e, {0}); }}", checkedListWindowSettings.ListBoxName);
+        ddeProperties.ClientSideEvents.DropDown = String.Format("function(s, e) {{ SynchronizeListBoxValues(s, e, {0}); }}", checkedListWindowSettings.ListBoxName);
+        parameter.PropertiesEdit = ddeProperties;
+    });
+}).GetHtml()
