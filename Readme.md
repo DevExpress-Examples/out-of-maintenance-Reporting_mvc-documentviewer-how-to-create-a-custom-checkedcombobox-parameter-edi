@@ -1,3 +1,12 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/T262163/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/T262163/Controllers/HomeController.vb))
+* [ProductsReport.cs](./CS/T262163/Reports/ProductsReport.cs) (VB: [ProductsReport.vb](./VB/T262163/Reports/ProductsReport.vb))
+* [CheckedListWindowTemplate.cs](./CS/T262163/Templates/CheckedListWindowTemplate.cs) (VB: [CheckedListWindowTemplate.vb](./VB/T262163/Templates/CheckedListWindowTemplate.vb))
+* **[_DocumentViewerPartial.cshtml](./CS/T262163/Views/Home/_DocumentViewerPartial.cshtml)**
+* [Index.cshtml](./CS/T262163/Views/Home/Index.cshtml)
+<!-- default file list end -->
 # MVC DocumentViewer - How to create a custom CheckedComboBox parameter editor with the "Select All" functionality for a report
 
 
