@@ -9,7 +9,7 @@
 <!-- default file list end -->
 # MVC DocumentViewer - How to create a custom CheckedComboBox parameter editor with the "Select All" functionality for a report
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t262163)**
+**[[Run Online]](https://codecentral.devexpress.com/t262163/)**
 <!-- run online end -->
 
 
